@@ -1,25 +1,18 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_node - Creates a binary tree node
+ * binary_tree_is_leaf - checks if a node is a leaf
+ * @node: pointer to the node to check
  *
- * @parent: node parent
- * @value: node value
- * Return: pointer to the new node or NULL on failure
+ * Return: 1 if node is a leaf, otherwise 0
  */
 
-binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
+int binary_tree_is_leaf(const binary_tree_t *node)
 {
-	binary_tree_t *new;
+	int leaf = 0;
 
-	new = malloc(sizeof(binary_tree_t));
-	if (new == NULL)
-		return (NULL);
+	if (node && !(node->left) && !(node->right))
+		leaf = 1;
 
-	new->parent = parent;
-	new->n = value;
-	new->left = NULL;
-	new->right = NULL;
-
-	return (new);
+	return (leaf);
 }
